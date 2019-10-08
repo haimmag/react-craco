@@ -36,7 +36,7 @@ module.exports = {
   jest: {
       configure: {
           moduleNameMapper: {
-              "^@(.*)$": "<rootDir>/src$1"
+              "^@app(.*)$": "<rootDir>/src$1"
           }
       }
   }
