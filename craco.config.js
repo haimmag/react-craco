@@ -1,5 +1,11 @@
 const path = require("path");
 const CSS_MODULE_LOCAL_IDENT_NAME = "[local]___[hash:base64:5]";
+const emotionPresetOptions = {}
+
+const emotionBabelPreset = require('@emotion/babel-preset-css-prop').default(
+  undefined,
+  emotionPresetOptions
+)
 
 module.exports = {
   style: {
@@ -9,6 +15,7 @@ module.exports = {
   },
   babel: {
     plugins: [
+      ...emotionBabelPreset.plugins,
       [
         "babel-plugin-react-css-modules",
         {
