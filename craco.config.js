@@ -1,3 +1,4 @@
+const path = require("path");
 const CSS_MODULE_LOCAL_IDENT_NAME = "[local]___[hash:base64:5]";
 
 module.exports = {
@@ -22,9 +23,21 @@ module.exports = {
       ]
     ]
   },
-  webpack: {
+  webpack: {    
+    resolve: { 
+      alias: {
+        "@app": path.resolve(__dirname, "src/"),
+      }
+    },    
     configure: {
       externals: []
     }
+  },
+  jest: {
+      configure: {
+          moduleNameMapper: {
+              "^@(.*)$": "<rootDir>/src$1"
+          }
+      }
   }
 }
